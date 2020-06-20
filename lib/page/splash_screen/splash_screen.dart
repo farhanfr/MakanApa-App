@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makan_apa_app/page/authentication/login_screen.dart';
+import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,6 +9,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   bool isLoading = true;
+
 
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(
                   fontSize: 32.0,
                   height: 1.5,
+                  color: whiteColor,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Poppins"),
             ),
