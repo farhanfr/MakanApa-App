@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:makan_apa_app/widget/constanst.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+
 
 class NewFoodThisWeek extends StatefulWidget {
   const NewFoodThisWeek({
@@ -14,6 +13,12 @@ class NewFoodThisWeek extends StatefulWidget {
 class _NewFoodThisWeekState extends State<NewFoodThisWeek> {
   @override
   Widget build(BuildContext context) {
+    var _crossAxisSpacing = 8;
+    var _screenWidth = MediaQuery.of(context).size.width;
+    var _crossAxisCount = 2;
+    var _width = ( _screenWidth - ((_crossAxisCount - 1) * _crossAxisSpacing)) / _crossAxisCount;
+    var cellHeight = 200;
+    var _aspectRatio = _width /cellHeight;
     return SingleChildScrollView(
       child: Container(
         child: GridView.builder(
@@ -23,7 +28,7 @@ class _NewFoodThisWeekState extends State<NewFoodThisWeek> {
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 100 / 90
+                  childAspectRatio: _aspectRatio
                 ),
             itemBuilder: (BuildContext context, int index) {
               return Container(
@@ -36,8 +41,8 @@ class _NewFoodThisWeekState extends State<NewFoodThisWeek> {
                     boxShadow: [
                       BoxShadow(
                         offset: Offset(0, 4),
-                        blurRadius: 20,
-                        color: Color(0xFFB0CCE1).withOpacity(0.32),
+                        blurRadius: 10,
+                        color: Colors.grey.withOpacity(0.32),
                       ),
                     ]),
                 child: Material(
