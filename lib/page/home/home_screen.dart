@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:makan_apa_app/page/home/components/carousel_info.dart';
 import 'package:makan_apa_app/page/home/components/food_category_one.dart';
 import 'package:makan_apa_app/page/home/components/food_category_two.dart';
+import 'package:makan_apa_app/page/home/components/new_food_this_week.dart';
 import 'package:makan_apa_app/page/home/components/popular_food.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
@@ -11,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           // padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
@@ -52,18 +53,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               PopularFood(),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.0),
-                child : Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text("New Food This Week",
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                              color: primaryColor)),
-                    ),
-              )
+              Text("New Food This Week",
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
+                                  color: primaryColor)),
+              SizedBox(height: 20.0,),
+              NewFoodThisWeek()
               
             ],
           ),
@@ -72,3 +69,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
