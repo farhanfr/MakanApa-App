@@ -33,8 +33,9 @@ class CarouselInfo extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Carousel(
           // onImageTap: ,
+          dotBgColor: Colors.transparent,
           borderRadius: true,
-          autoplay: false,
+          autoplay: true,
           images: _listBannerImages(),
         ));
   }
