@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:makan_apa_app/page/home/components/carousel_info.dart';
 import 'package:makan_apa_app/page/home/components/food_category_one.dart';
 import 'package:makan_apa_app/page/home/components/food_category_two.dart';
+import 'package:makan_apa_app/page/home/components/more_restaurant.dart';
 import 'package:makan_apa_app/page/home/components/new_food_this_week.dart';
 import 'package:makan_apa_app/page/home/components/other_food.dart';
 import 'package:makan_apa_app/page/home/components/other_restaurant.dart';
@@ -108,6 +110,22 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.0),
                OtherRestaurant(),
+               ButtonTheme(
+                minWidth: 200.0,
+                height: 50.0,
+                child: RaisedButton(
+                    color: primaryColor,
+                    child: Text(
+                      "More Restaurant",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    onPressed: () => {
+                      Get.to(MoreRestaurant())
+                    }),
+              ),
+              SizedBox(height: 20.0),
             ],
           ),
         ),

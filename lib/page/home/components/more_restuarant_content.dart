@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
-class OtherRestaurant extends StatefulWidget {
-  @override
-  _OtherRestaurantState createState() => _OtherRestaurantState();
-}
+class MoreRestaurantContent extends StatelessWidget {
+  final int position;
+  MoreRestaurantContent(
+    this.position, {
+    Key key,
+  }) : super(key: key);
 
-class _OtherRestaurantState extends State<OtherRestaurant> {
-  var itemCount = 10;
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height:MediaQueryData.fromWindow(context).size.height;
-      // height:MediaQuery.of(context).size.height,
-      child: ListView.builder(
-          itemCount: itemCount,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 120,
-              margin: EdgeInsets.only(left: 10, right: 10),
-              child: Column(
+      height: 120,
+      margin: EdgeInsets.only(left: 10, right: 10),
+      child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Row(
@@ -55,16 +46,14 @@ class _OtherRestaurantState extends State<OtherRestaurant> {
                       ),
                     ],
                   ),
-                  index == 9
-                      ? Visibility(
-                          child: Divider(),
-                          visible: false,
-                        )
-                      : Divider()
+                  // index == 9
+                  //     ? Visibility(
+                  //         child: Divider(),
+                  //         visible: false,
+                  //       )
+                  //     : Divider()
                 ],
               ),
-            );
-          }),
     );
   }
 }
