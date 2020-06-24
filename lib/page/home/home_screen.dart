@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:makan_apa_app/page/home/components/carousel_info.dart';
 import 'package:makan_apa_app/page/home/components/food_category_one.dart';
 import 'package:makan_apa_app/page/home/components/food_category_two.dart';
+import 'package:makan_apa_app/page/home/components/main_app_bar.dart';
 import 'package:makan_apa_app/page/home/components/more_restaurant.dart';
 import 'package:makan_apa_app/page/home/components/new_food_this_week.dart';
 import 'package:makan_apa_app/page/home/components/other_food.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: mainAppBar(),
       body: SingleChildScrollView(
         child: Container(
           // padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
