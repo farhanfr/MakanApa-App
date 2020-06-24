@@ -42,7 +42,6 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: thirdColor,
-      // appBar: currentAppBar("Detail", Colors.black),
       body: CustomScrollView(
         controller:_controller,
         scrollDirection: Axis.vertical,
@@ -68,11 +67,6 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
                 ListRestaurantMenu()
               ]),
             )
-            // Container(
-            //   width: MediaQuery.of(context).size.width,
-            //   child:Image.asset("assets/img/bgtest.png",fit: BoxFit.cover,), 
-            // ),
-            
           ],
       ),
     );
