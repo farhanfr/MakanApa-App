@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:makan_apa_app/page/home/components/more_category_bottomsheet.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
-class FoodCategoryTwo extends StatelessWidget {
+class FoodCategoryTwo extends StatefulWidget {
   const FoodCategoryTwo({
     Key key,
   }) : super(key: key);
+
+  @override
+  _FoodCategoryTwoState createState() => _FoodCategoryTwoState();
+}
+
+class _FoodCategoryTwoState extends State<FoodCategoryTwo> {
+List<String> test = ['1','2','3','4'];
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        
         Column(
           children: <Widget>[
             InkWell(
