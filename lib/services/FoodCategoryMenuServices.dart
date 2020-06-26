@@ -27,4 +27,44 @@ class FoodCategoryMenuServices{
     }
   }
 
+  Future<List<FoodCategoryModel>> getAllMenuSecond() async{
+    List<FoodCategoryModel> _list = [];
+    final response = await client.get("$url/all/second");
+    if(response.statusCode == 200){
+      // final data = [jsonDecode(response.body)];
+      Map<String, dynamic> map = jsonDecode(response.body);
+      List<dynamic> data = map["data"];
+      for (Map i in data) {
+        _list.add(FoodCategoryModel.fromJson(i));
+        // print("ISI $i");
+      }
+      print(_list);
+      return _list;
+    }
+    else{
+      print("failed");
+      return null;
+    }
+  }
+
+  Future<List<FoodCategoryModel>> getAllMenu() async{
+    List<FoodCategoryModel> _list = [];
+    final response = await client.get("$url/all");
+    if(response.statusCode == 200){
+      // final data = [jsonDecode(response.body)];
+      Map<String, dynamic> map = jsonDecode(response.body);
+      List<dynamic> data = map["data"];
+      for (Map i in data) {
+        _list.add(FoodCategoryModel.fromJson(i));
+        // print("ISI $i");
+      }
+      print(_list);
+      return _list;
+    }
+    else{
+      print("failed");
+      return null;
+    }
+  }
+
 }
