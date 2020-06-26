@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:makan_apa_app/model/FoodModel.dart';
 import 'package:makan_apa_app/model/MenuRestaurantModel.dart';
 import 'package:makan_apa_app/page/home/components/intro_restaurant.dart';
 import 'package:makan_apa_app/page/home/components/list_restaurant_menu.dart';
+import 'package:makan_apa_app/services/FoodServices.dart';
 import 'package:makan_apa_app/services/MenuRestaurantServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 import 'package:makan_apa_app/widget/current_app_bar.dart';
@@ -14,6 +16,7 @@ class DetailRestaurant extends StatefulWidget {
 
 class _DetailRestaurantState extends State<DetailRestaurant> {
   MenuRestaurantServices menuRestaurantServices;
+  FoodServices foodServices;
   ScrollController _controller;
   bool silverCollapsed = false;
   String myTitle = "";
@@ -61,6 +64,7 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
   void initState() {
     super.initState();
       menuRestaurantServices = MenuRestaurantServices();
+      foodServices = FoodServices();
 
   }
 
@@ -70,7 +74,7 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
       backgroundColor: thirdColor,
       body: 
       FutureBuilder(
-            future: menuRestaurantServices.getAllMenuTitle(),
+            future: Future.wait([foodServices.getAllFoodByRestaurant(),menuRestaurantServices.getAllMenuTitle()]),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 return Center(
@@ -78,9 +82,10 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
                       "Something wrong with message: ${snapshot.error.toString()}"),
                 );
               } else if (snapshot.connectionState == ConnectionState.done) {
-                List<MenuRestaurantModel> menuRestaurants = snapshot.data;
+                List<MenuRestaurantModel> menuRestaurants = snapshot.data[1];
+                List<FoodModel> foodRestaurants = snapshot.data[0];
                 print("DATANEE : ${snapshot.data}");
-                return buildCustomScrollView(menuRestaurants);
+                return buildCustomScrollView(menuRestaurants,foodRestaurants);
               } else {
                 return Center(child: CircularProgressIndicator());
               }
@@ -89,7 +94,7 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
     );
   }
 
-  CustomScrollView buildCustomScrollView(List<MenuRestaurantModel> menuRestaurants) {
+  CustomScrollView buildCustomScrollView(List<MenuRestaurantModel> menuRestaurants, List<FoodModel> foodRestaurants) {
     return CustomScrollView(
       // controller:a(),
       scrollDirection: Axis.vertical,
@@ -112,7 +117,7 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
           SliverList(
             delegate: SliverChildListDelegate([
                IntroRestaurant(),
-               ListRestaurantMenu(menuTotal: menuRestaurants.length,menuRestaurants: menuRestaurants,)
+               ListRestaurantMenu(menuTotal: menuRestaurants.length,menuRestaurants: menuRestaurants,foodRestaurant:foodRestaurants ,)
             ]),
           )
         ],
