@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:makan_apa_app/model/MenuRestaurantModel.dart';
 import 'package:makan_apa_app/page/home/components/detail_add_cart.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
 class ListRestaurantMenu extends StatefulWidget {
+  final int menuTotal;
+  final List<MenuRestaurantModel> menuRestaurants;
+
+  const ListRestaurantMenu({Key key, this.menuTotal, this.menuRestaurants}) : super(key: key);
   @override
   _ListRestaurantMenuState createState() => _ListRestaurantMenuState();
 }
@@ -13,9 +18,10 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
     return Container(
       child: ListView.builder(
           shrinkWrap: true,
-          itemCount: 4,
+          itemCount:widget.menuRestaurants.length,
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
+            MenuRestaurantModel menuRestaurantModel = widget.menuRestaurants[index];
             return Column(
               children: <Widget>[
                 Container(
@@ -35,7 +41,7 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
                                   padding: const EdgeInsets.only(
                                       top: 10.0, left: 10.0),
                                   child: Text(
-                                    "Paket Murah",
+                                    menuRestaurantModel.name,
                                     style: TextStyle(
                                         fontFamily: "Poppins",
                                         fontSize: 20.0,

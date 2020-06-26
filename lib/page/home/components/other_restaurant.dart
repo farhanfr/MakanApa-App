@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:makan_apa_app/model/RestaurantModel.dart';
+import 'package:makan_apa_app/page/home/components/detail_restaurant.dart';
 import 'package:makan_apa_app/services/RestaurantServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
@@ -33,7 +35,7 @@ class _OtherRestaurantState extends State<OtherRestaurant> {
                 );
               } else if (snapshot.connectionState == ConnectionState.done) {
                 List<RestaurantModel> restaurant = snapshot.data;
-                print("DATANEE : ${snapshot.data}");
+                // print("DATANEE : ${snapshot.data}");
                 return buildListView(restaurant);
               } else {
                 return Center(child: CircularProgressIndicator());
@@ -44,61 +46,67 @@ class _OtherRestaurantState extends State<OtherRestaurant> {
 
   ListView buildListView(List<RestaurantModel> restaurants) {
     return ListView.builder(
-        itemCount: 10,
+        itemCount: restaurants.length,
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           RestaurantModel restaurantModel = restaurants[index];
-          return Container(
-            height: 120,
-            margin: EdgeInsets.only(left: 10, right: 10),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        width: 100.0,
-                        height: 100.0,
-                        color: primaryColor,
-                        child: Image.asset("assets/img/bgtest.png",
-                            fit: BoxFit.cover),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 6,
-                      child: Container(
-                        margin: EdgeInsets.only(left: 10),
-                        width: 100.0,
-                        height: 100.0,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(restaurantModel.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold)),
-                            // Text("Pak Anon Place - sawojajar",style: TextStyle(color: textLightColor),),
-                            // Text("oeee asas"),
-                          ],
+          return GestureDetector(
+            onTap: () {
+              Get.to(DetailRestaurant());
+            },
+            child: Container(
+              color: whiteColor,
+              height: 120,
+              margin: EdgeInsets.only(left: 10, right: 10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          color: primaryColor,
+                          child: Image.asset("assets/img/bgtest.png",
+                              fit: BoxFit.cover),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                index == restaurants.length - 1
-                    ? Visibility(
-                        child: Divider(),
-                        visible: false,
-                      )
-                    : Divider()
-              ],
+                      Expanded(
+                        flex: 6,
+                        child: Container(
+                          margin: EdgeInsets.only(left: 10),
+                          width: 100.0,
+                          height: 100.0,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(restaurantModel.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              // Text("Pak Anon Place - sawojajar",style: TextStyle(color: textLightColor),),
+                              // Text("oeee asas"),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  index == restaurants.length - 1
+                      ? Visibility(
+                          child: Divider(),
+                          visible: false,
+                        )
+                      : Divider()
+                ],
+              ),
             ),
           );
         });
