@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
 class IntroRestaurant extends StatelessWidget {
+  final String nameRestaurant;
+
+  const IntroRestaurant({Key key, this.nameRestaurant}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,7 +15,7 @@ class IntroRestaurant extends StatelessWidget {
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Align(alignment: Alignment.topLeft,
-          child: Text("Mie Gacoan - Sawojajar",style: TextStyle(
+          child: Text(nameRestaurant,style: TextStyle(
             fontSize: 20.0,fontFamily: "Poppins"  
           ),)),
         ],

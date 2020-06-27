@@ -62,7 +62,7 @@ List<String> test = ['1','2','3','4'];
                 size: 20,
               ),
               decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Color(0xFFe0f2f1)),
+                  shape: BoxShape.circle, color: whiteColor),
             ),
           ),
           Text(item.name)

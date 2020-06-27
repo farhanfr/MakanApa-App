@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
-class DetailAddCartContent extends StatelessWidget {
+class DetailAddCartContent extends StatefulWidget {
+  final String nameFood;
+  final int priceFood;
+
+  const DetailAddCartContent({Key key, this.nameFood, this.priceFood}) : super(key: key);
+
+  @override
+  _DetailAddCartContentState createState() => _DetailAddCartContentState();
+}
+
+class _DetailAddCartContentState extends State<DetailAddCartContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,11 +35,11 @@ class DetailAddCartContent extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text("Mie Jogja",
+                      Text(widget.nameFood,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0)),
                       Text(
-                        "12000",
+                        widget.priceFood.toString(),
                         style:
                             TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                       )

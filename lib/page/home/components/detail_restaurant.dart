@@ -10,6 +10,9 @@ import 'package:makan_apa_app/widget/constanst.dart';
 import 'package:makan_apa_app/widget/current_app_bar.dart';
 
 class DetailRestaurant extends StatefulWidget {
+  final String nameRestaurant,backPhotoRestaurant;
+
+  const DetailRestaurant({Key key, this.nameRestaurant, this.backPhotoRestaurant}) : super(key: key);
   @override
   _DetailRestaurantState createState() => _DetailRestaurantState();
 }
@@ -109,14 +112,16 @@ class _DetailRestaurantState extends State<DetailRestaurant> {
             }),
             flexibleSpace: FlexibleSpaceBar(
               title: Text("Test"),
-              background: Image.network("https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg",
+              background: Image.network("http://192.168.1.7:8000/img/${widget.backPhotoRestaurant}",
               fit: BoxFit.cover,
+              color: Colors.black.withOpacity(0.9),
+              colorBlendMode: BlendMode.softLight,
               ),
             ),
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-               IntroRestaurant(),
+               IntroRestaurant(nameRestaurant: widget.nameRestaurant),
                ListRestaurantMenu(menuTotal: menuRestaurants.length,menuRestaurants: menuRestaurants,foodRestaurant:foodRestaurants ,)
             ]),
           )

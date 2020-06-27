@@ -5,7 +5,7 @@ import 'package:makan_apa_app/widget/constanst.dart';
 
 class DetailAddCart{
   
-  static void detailAddCartMethod(context) {
+  static void detailAddCartMethod(context, String name, int price, String photo) {
     showModalBottomSheet(
       backgroundColor: whiteColor,
         context: context,
@@ -14,7 +14,7 @@ class DetailAddCart{
         // ),
         builder: (BuildContext bc) {
           return Container(
-            child: DetailAddCartContent()
+            child: DetailAddCartContent(nameFood: name,priceFood: price,)
           );
         });
   }

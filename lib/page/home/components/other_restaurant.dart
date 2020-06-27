@@ -54,7 +54,7 @@ class _OtherRestaurantState extends State<OtherRestaurant> {
           RestaurantModel restaurantModel = restaurants[index];
           return GestureDetector(
             onTap: () {
-              Get.to(DetailRestaurant());
+              Get.to(DetailRestaurant(nameRestaurant: restaurantModel.name,backPhotoRestaurant: restaurantModel.backPhoto,));
             },
             child: Container(
               color: whiteColor,

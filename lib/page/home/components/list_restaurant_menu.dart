@@ -31,7 +31,11 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
               children: <Widget>[
                
                 Container(
-                  color: whiteColor,
+                  // color: whiteColor,
+                  decoration: BoxDecoration(
+                    color: whiteColor,
+                      borderRadius: BorderRadius.only(topRight: Radius.circular(10))
+                    ),
                                   child: Padding(
                     padding: const EdgeInsets.only(top: 10.0, left: 10.0,right: 10.0),
                     child: Text(
@@ -47,6 +51,7 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
                 Container(
                     color: Colors.white,
                     margin: EdgeInsets.only(bottom: 10.0),
+                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       // mainAxisSize: MainAxisSize.min,
@@ -69,8 +74,8 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
                                       // color: primaryColor,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(5),
-                                        child: Image.asset(
-                                            "assets/img/bgtest.png",
+                                        child: Image.network(
+                                            "http://192.168.1.7:8000/img/${item.photo}",
                                             fit: BoxFit.cover),
                                       ),
                                     ),
@@ -115,9 +120,8 @@ class _ListRestaurantMenuState extends State<ListRestaurantMenu> {
                                             children: <Widget>[
                                               InkWell(
                                                   onTap: () {
-                                                    DetailAddCart
-                                                        .detailAddCartMethod(
-                                                            context);
+                                                    DetailAddCart.detailAddCartMethod(
+                                                            context,item.name,item.price,item.photo);
                                                   },
                                                   child: Text(
                                                       "Click Here to add",
