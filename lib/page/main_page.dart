@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makan_apa_app/page/account/account_screen.dart';
 import 'package:makan_apa_app/page/home/components/main_app_bar.dart';
 import 'package:makan_apa_app/page/home/home_screen.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
@@ -16,7 +17,7 @@ class _MainPageState extends State<MainPage> {
    HomeScreen(),
     Center(child: Text("a")),
     Center(child: Text("a")),
-    Center(child: Text("a")),
+    AccountScreen(),
   ];
 
   @override

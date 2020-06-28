@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 import 'package:makan_apa_app/widget/get_shared_pref.dart';
+import 'package:makan_apa_app/widget/shared_pref.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    SharedPref().checkValues("tokenUser");
     Future.delayed(Duration(seconds: 3), () {
       GetSharedPref().checkLogin();
       // Navigator.pushReplacement(

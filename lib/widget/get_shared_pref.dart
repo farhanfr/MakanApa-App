@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
-import 'package:makan_apa_app/page/home/home_screen.dart';
 import 'package:makan_apa_app/page/main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,6 +15,7 @@ class GetSharedPref{
     }
     else{
       Get.off(LoginScreen());
+      print("user not logged in !!!");
     }
   }
 }

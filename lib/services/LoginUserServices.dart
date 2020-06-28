@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' show Client;
-import 'package:makan_apa_app/model/FailureModel.dart';
 import 'package:makan_apa_app/model/UserModel.dart';
-import 'package:makan_apa_app/page/home/home_screen.dart';
+import 'package:makan_apa_app/page/main_page.dart';
 import 'package:makan_apa_app/widget/shared_pref.dart';
 
 class LoginUserServices {
@@ -23,7 +22,7 @@ class LoginUserServices {
         LoginUserModel loginUserModel = new LoginUserModel.fromJson(data);
         SharedPref().addIntToSF("id", loginUserModel.user.id);
         SharedPref().addStringToSF("tokenUser", loginUserModel.user.token);
-        Get.to(HomeScreen());
+        Get.to(MainPage());
         print(loginUserModel.user.token);
       } else {
         List<dynamic> data2 = map["message"];

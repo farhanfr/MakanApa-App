@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
 // import 'package:makan_apa_app/auth/otp_firebase_services.dart' as fb;
-import 'package:makan_apa_app/page/authentication/otp/otp_screen.dart';
-import 'package:makan_apa_app/page/home/home_screen.dart';
 import 'package:makan_apa_app/services/LoginUserServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
-import 'package:makan_apa_app/widget/get_shared_pref.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 
 class LoginComponent extends StatefulWidget {
   const LoginComponent({
@@ -23,19 +16,17 @@ class _LoginComponentState extends State<LoginComponent> {
   LoginUserServices loginUserServices;
 
   TextEditingController inpNumberPhone = new TextEditingController();
-  
 
   @override
   void initState() {
     super.initState();
-    GetSharedPref().checkLogin();
     loginUserServices = LoginUserServices();
   }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-            child: Container(
+      child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
         child: Column(
           children: <Widget>[
@@ -43,7 +34,11 @@ class _LoginComponentState extends State<LoginComponent> {
               alignment: Alignment.centerLeft,
               child: Text(
                 "Input your phone number to login",
-                style: TextStyle(fontFamily: "Poppins",fontSize: 32.0,fontWeight: FontWeight.bold,color: whiteColor),
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                    color: whiteColor),
               ),
             ),
             SizedBox(height: 30.0),
@@ -64,25 +59,26 @@ class _LoginComponentState extends State<LoginComponent> {
             ),
             SizedBox(height: 50.0),
             ButtonTheme(
-                      minWidth: MediaQuery.of(context).size.width,
-                      height: 50.0,
-                      child: RaisedButton(
-                          color: Colors.white,
-                          child: Text(
-                            "Login",
-                            style: TextStyle(color: primaryColor),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          onPressed: () {
-                          // // fb.OtpFirebaseServices(phoneNo: "082234039672");
-                          //  fb.globalKey.currentState.verifyPhone();
-                            loginUserServices.loginUser(inpNumberPhone.text);
-                            
-                          } 
-                          ),
-                    )
+              minWidth: MediaQuery.of(context).size.width,
+              height: 50.0,
+              child: RaisedButton(
+                  color: Colors.white,
+                  child: Text(
+                    "Login",
+                    style: TextStyle(color: primaryColor),
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  onPressed: () {
+                    // // fb.OtpFirebaseServices(phoneNo: "082234039672");
+                    //  fb.globalKey.currentState.verifyPhone();
+                    if (inpNumberPhone.text.isNotEmpty) {
+                      loginUserServices.loginUser(inpNumberPhone.text);
+                    } else {
+                      print("Number phone is empty");
+                    }
+                  }),
+            )
           ],
         ),
       ),

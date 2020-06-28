@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
-import 'package:makan_apa_app/page/home/home_screen.dart';
-import 'package:makan_apa_app/page/main_page.dart';
 import 'package:makan_apa_app/page/splash_screen/splash_screen.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
