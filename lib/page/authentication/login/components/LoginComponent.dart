@@ -6,6 +6,8 @@ import 'package:makan_apa_app/page/authentication/otp/otp_screen.dart';
 import 'package:makan_apa_app/page/home/home_screen.dart';
 import 'package:makan_apa_app/services/LoginUserServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
+import 'package:makan_apa_app/widget/get_shared_pref.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class LoginComponent extends StatefulWidget {
@@ -21,10 +23,12 @@ class _LoginComponentState extends State<LoginComponent> {
   LoginUserServices loginUserServices;
 
   TextEditingController inpNumberPhone = new TextEditingController();
+  
 
   @override
   void initState() {
     super.initState();
+    GetSharedPref().checkLogin();
     loginUserServices = LoginUserServices();
   }
 
