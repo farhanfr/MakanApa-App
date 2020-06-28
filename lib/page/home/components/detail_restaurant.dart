@@ -7,7 +7,6 @@ import 'package:makan_apa_app/page/home/components/list_restaurant_menu.dart';
 import 'package:makan_apa_app/services/FoodServices.dart';
 import 'package:makan_apa_app/services/MenuRestaurantServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
-import 'package:makan_apa_app/widget/current_app_bar.dart';
 
 class DetailRestaurant extends StatefulWidget {
   final String nameRestaurant,backPhotoRestaurant;
@@ -20,7 +19,6 @@ class DetailRestaurant extends StatefulWidget {
 class _DetailRestaurantState extends State<DetailRestaurant> {
   MenuRestaurantServices menuRestaurantServices;
   FoodServices foodServices;
-  ScrollController _controller;
   bool silverCollapsed = false;
   String myTitle = "";
 

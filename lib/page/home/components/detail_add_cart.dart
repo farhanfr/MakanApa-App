@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:makan_apa_app/page/home/components/detail_add_cart_content.dart';
-import 'package:makan_apa_app/page/home/components/more_category_bottomsheet.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
 class DetailAddCart{

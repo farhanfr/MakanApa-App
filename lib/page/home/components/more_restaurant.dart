@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:makan_apa_app/model/RestaurantModel.dart';
 import 'package:makan_apa_app/page/home/components/more_restuarant_content.dart';
 import 'package:makan_apa_app/services/RestaurantServices.dart';
