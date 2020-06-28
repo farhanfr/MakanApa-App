@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:makan_apa_app/page/authentication/login/login_screen.dart';
 import 'package:makan_apa_app/page/home/home_screen.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
