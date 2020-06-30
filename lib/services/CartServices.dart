@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' show Client;
 import 'package:makan_apa_app/model/CartModel.dart';
-import 'package:makan_apa_app/model/CartTotalModel.dart';
+
 
 class CartServices{
   final String url = "http://192.168.1.7:8000/api/v1/cart";
@@ -49,6 +49,23 @@ class CartServices{
     }
   }
 
+Future<Null> updateQty(int qtyCounter, int idCart) async{
+    final response = await client.put("$url/update/qty",body: {"id": idCart.toString(),"qty":qtyCounter.toString()});
+    if(response.statusCode == 200){
+      // final data = [jsonDecode(response.body)];
+      Map<String, dynamic> map = jsonDecode(response.body);
+      // final cartTotalModel = cartTotalModelFromJson(map);
+      print(map);
+      String data2 = map["message"];
+        // print("ISI $i");
+      print("$data2");
+      
+    }
+    else{
+      print("failed23");
+      return null;
+    }
+  }
 
 
 }

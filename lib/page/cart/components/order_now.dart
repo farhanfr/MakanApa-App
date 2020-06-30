@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:makan_apa_app/model/CartTotalModel.dart';
 import 'package:makan_apa_app/services/CartServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 

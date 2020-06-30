@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makan_apa_app/model/CartModel.dart';
+import 'package:makan_apa_app/page/cart/components/detail_item_cart.dart';
 import 'package:makan_apa_app/services/CartServices.dart';
 import 'package:makan_apa_app/widget/constanst.dart';
 
@@ -98,7 +99,9 @@ class _ListCartItemState extends State<ListCartItem> {
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          DetailItemCart.detailCart(context,cartItems[index].qty,cartItems[index].id);
+                                        },
                                         child: Text("Edit & Detail",
                                             style:
                                                 TextStyle(color: primaryColor))),
